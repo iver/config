@@ -1,0 +1,8 @@
+# CakePHP
+#####################
+/app/tmp/
+/app/webroot/files/*
+
+# Logs
+#####################
+*.log
