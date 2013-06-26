@@ -1,0 +1,12 @@
+#!/bin/sh 
+
+# common alias
+alias ls="ls -F --color"
+alias ll='ls -lhG'  # -l long listing, human readable, no group info
+#alias ll="ls -l"
+alias la="ll -ah"
+alias lt="la -t"
+alias lr="lt -r"
+alias pw="pwd"
+
+alias h='history'

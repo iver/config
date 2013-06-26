@@ -1,0 +1,53 @@
+#!/bin/sh 
+
+# paths
+# --
+# (c) Iver!
+# Iván Jaimes <iver@iver.mx>
+#
+
+# This is the user path enviroment file for GNU/Linux.
+# See bash_rc or bash_profile for more information.
+
+# input mode
+umask 0007
+
+java17 () {
+  PATH=/opt/jre1.7.0_17/bin:${LPATH}
+}
+
+localpaths () {
+  LPATH=${PATH}
+
+  # Android
+  [ -d /opt/local/android-sdk-linux_x86_r13/tools ] && LPATH=/opt/local/android-sdk-linux_x86_r13/tools:${LPATH}
+  [ -d /opt/local/android-sdk-linux_x86_r13/platform-tools ] && LPATH=/opt/local/android-sdk-linux_x86_r13/platform-tools:${LPATH}
+
+  # Other binaries
+  [ -d /usr/sbin ] && LPATH=/usr/sbin:${LPATH}
+  [ -d /usr/bin ] && LPATH=/usr/bin:${LPATH}
+  [ -d /sbin ] && LPATH=/sbin:${LPATH}
+  [ -d /bin ] && LPATH=/bin:${LPATH}
+
+  # locals
+  [ -d /usr/local/bin ] && LPATH=/usr/local/bin:${LPATH}
+  [ -d /opt/local/sbin ] && LPATH=/opt/local/sbin:${LPATH}
+  [ -d /opt/local/bin ] && LPATH=/opt/local/bin:${LPATH}
+  [ -d ${HOME}/apps ] && LPATH=${HOME}/apps:${LPATH}
+  [ -d ${HOME}/bin ] && LPATH=${HOME}/bin:${LPATH}
+
+  # Add RVM to PATH for scripting
+  PATH=$PATH:$HOME/.rvm/bin 
+
+  LPATH=.:${LPATH}
+  PATH=${LPATH}
+
+}
+
+# Cursor and profile
+localpaths
+java17
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
