@@ -3,10 +3,13 @@ Baubles
 
 Git baubles
 
-This repository contains a few utilities
+This repository contains a few scripts
 
-- **dump_databases.sh** Backup each mysql databases into a different file, rather than one big file
-- **gitconfig** My global git configuration
-- **gitignore_global**  Global git ignore configuration
-- **bashrc**  Script which start up ssh-agent for each Cygwin shell you have open.
-- **ssh_key_add.rb** Load all ssh_key files from ~/.ssh directory on Cygwin shell
+- **bashrc** a setup profile enviroment file for unix-like systems.
+- **dotFiles** git and bash scripts directory.
+  - **gitconfig** My global git configuration
+  - **gitignore_global**  Global git ignore configuration
+  - **gitignore_cake**  Git ignore configuration for cakephp projects
+  - **ssh_key_add.rb** Load all ssh_key files from ~/.ssh directory on Cygwin shell
+- **maintenance** maintenance scripts directory.
+  - **dump_databases.sh** Backup each mysql databases into a different file, rather than one big file
