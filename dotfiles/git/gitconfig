@@ -14,11 +14,8 @@
 [apply]
   whitespace = warn
 [core]
-	excludesfile = /Users/iver/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	quotepath = off
-[user]
-	name = Ivan Jaimes
-	email = ivan.jaimes@talentprocess.com
 [color]
   diff = auto
   status = auto
@@ -31,14 +28,3 @@
 [push]
   # Only push branches that have been set up to track a remote branch
   default = current
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-# [mergetool]
-#	keepBackup = true
-#	prompt = false
-#[merge]
-#  tool = kdiff3

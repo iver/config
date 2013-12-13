@@ -1,8 +1,8 @@
-#!/bin/sh 
+#!/bin/sh
 
 # common alias
-alias ls="ls -F"
-alias ll='ls -lhG'  # -l long listing, human readable, no group info
+alias ls="ls -F --color"
+alias ll='ls -lh'  # -l long listing, human readable, no group info
 #alias ll="ls -l"
 alias la="ll -ah"
 alias lt="la -t"
@@ -10,9 +10,12 @@ alias lr="lt -r"
 alias pw="pwd"
 
 alias h='history'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias t='tail -fn'
 # alias mysql_stop='mysqladmin5 -u iver_root -p shutdown'
 # alias mysql_start='sudo mysqld_safe5 &'
 
-alias mysql=/usr/local/mysql/bin/mysql
-alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+# alias mysql=/usr/local/mysql/bin/mysql
+# alias mysqladmin=/usr/local/mysql/bin/mysqladmin
 

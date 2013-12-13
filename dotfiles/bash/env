@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 # linux.env
 # --
@@ -21,7 +21,7 @@ CLTYPE="\e"
 [ "${APSYSO}" = "HP-UX" ] && CLTYPE="\033"
 
 # terminal line settings
-stty 2> /dev/null > /dev/null 
+stty 2> /dev/null > /dev/null
 if [ "$?" = "0" ]
 then
 
@@ -98,7 +98,7 @@ unset USERNAME
 # get IP Address
 
 # TODO: Detect interface dynamically
-IFACE=wlan0
+IFACE=eth0
 
 MYIP=`ping -c1 ${HOSTNAME} | awk '/icmp_/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
 
