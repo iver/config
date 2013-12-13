@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 # common alias
 alias ls="ls -F"
@@ -10,6 +10,7 @@ alias lr="lt -r"
 alias pw="pwd"
 
 alias h='history'
+alias cdw='cd ~/Workspace'
 # alias mysql_stop='mysqladmin5 -u iver_root -p shutdown'
 # alias mysql_start='sudo mysqld_safe5 &'
 
