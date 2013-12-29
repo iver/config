@@ -12,8 +12,8 @@
 source ~/Config/dotfiles/git/git-prompt.sh
 . ~/Config/dotfiles/bash/paths
 
-# Uncomment this line if you want to load ssh-id 
-# . ~/Config/dotfiles/bash/ssh_config
+# Uncomment this line if you want to load ssh-id
+. ~/Config/dotfiles/bash/load_keys.sh
 
 # [ -z "$SP1" ] && return
 

@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 # paths
 # --
@@ -35,9 +35,11 @@ localpaths () {
   [ -d /opt/local/bin ] && LPATH=/opt/local/bin:${LPATH}
   [ -d ${HOME}/apps ] && LPATH=${HOME}/apps:${LPATH}
   [ -d ${HOME}/bin ] && LPATH=${HOME}/bin:${LPATH}
+  [ -d /usr/local/php5/bin ] && LPATH=/usr/local/php5/bin:${LPATH}
+  [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
 
   # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin 
+  PATH=$PATH:$HOME/.rvm/bin
 
   LPATH=.:${LPATH}
   PATH=${LPATH}
@@ -46,7 +48,7 @@ localpaths () {
 
 # Cursor and profile
 localpaths
-java17
+# java17
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
