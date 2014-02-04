@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 # paths
 # --
@@ -37,11 +37,11 @@ localpaths () {
   [ -d ${HOME}/bin ] && LPATH=${HOME}/bin:${LPATH}
 
   # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin 
+  PATH=$PATH:$HOME/.rvm/bin
 
+  LPATH=/opt/php53/bin:${LPATH}
   LPATH=.:${LPATH}
   PATH=${LPATH}
-
 }
 
 # Cursor and profile
