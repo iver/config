@@ -18,5 +18,5 @@ alias cdw='cd ~/Workspace'
 # alias mysql_stop='mysqladmin5 -u iver_root -p shutdown'
 # alias mysql_start='sudo mysqld_safe5 &'
 
-alias postgres.server='pg_ctl -D /usr/local/var/postgres/data -l /usr/local/var/postgres/server.log -p /usr/local/Cellar/postgresql/9.3.2/bin/postgres'
+# alias postgres.server='pg_ctl -D /usr/local/var/postgres/data -l /usr/local/var/postgres/server.log -p /usr/local/Cellar/postgresql/9.3.2/bin/postgres'
 

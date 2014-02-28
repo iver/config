@@ -37,10 +37,8 @@ localpaths () {
   [ -d ${HOME}/bin ] && LPATH=${HOME}/bin:${LPATH}
   [ -d /usr/local/php5/bin ] && LPATH=/usr/local/php5/bin:${LPATH}
   [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
-  [ -d /usr/local/Cellar/postgresql/9.3.2/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.2/bin:${LPATH}
-
-  # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin
+  # [ -d /usr/local/Cellar/postgresql/9.3.2/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.2/bin:${LPATH}
+  [ -d /Applications/Postgres.app/Contents/MacOS/bin ] && LPATH=/Applications/Postgres.app/Contents/MacOS/bin:${LPATH}
 
   LPATH=.:${LPATH}
   PATH=${LPATH}
@@ -51,6 +49,3 @@ localpaths () {
 localpaths
 # java17
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

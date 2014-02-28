@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 # linux.env
 # --
@@ -21,7 +21,7 @@ CLTYPE="\e"
 [ "${APSYSO}" = "HP-UX" ] && CLTYPE="\033"
 
 # terminal line settings
-stty 2> /dev/null > /dev/null 
+stty 2> /dev/null > /dev/null
 if [ "$?" = "0" ]
 then
 
@@ -81,7 +81,7 @@ fi
 cmdstyle () {
   export PS1="\e]1;${MYIP}\a\e]2;${MYIP}:${MYHOST}\a\
       \n\[${CRESET}\][\[${TXTYLW}\]${MYIP}\[${CRESET}\](${MYHOST})]:\[${TXTRED}\]\[${TXTWHT}\] \w \
-      \n\[${TXTCYN}\]${USER}\[${TXTRED}\]\$(__git_ps1)\[${CRESET}\] \$> "
+      \n\[${TXTCYN}\]${USER}\[${TXTRED}\]$(__git_ps1 " (%s)")[\$(ahead_behind)]\[${CRESET}\] \$> "
   export PS2=" ..> "
   shopt -s checkwinsize
 }

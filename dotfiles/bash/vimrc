@@ -24,7 +24,7 @@
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
   NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
   NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
-  NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
+  NeoBundle 'bling/vim-airline'           " Status line, 100% vimscript; no python needed.
   NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
@@ -36,8 +36,8 @@
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
   NeoBundle 'tpope/vim-surround'          " quoting/parenthesizing made simple
-  NeoBundle 'bling/vim-airline'           " Lean & mean status/tabline for vim that's light as air.
-  NeoBundle 'majutsushi/tagbar'           " Tagbar is a vim plugin for browsing the tags of source code files.
+  NeoBundle 'rizzatti/funcoo.vim'
+  NeoBundle 'rizzatti/dash.vim'           " Search Dash.app from Vim
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
@@ -87,7 +87,7 @@
   set diffopt+=iwhite,vertical    " ignore the difference of indents
   set matchpairs=(:),{:},[:],<:>
   set foldmethod=marker
-  set colorcolumn=100
+  set colorcolumn=110
 
   " Remove trailing whitespaces and ^M chars
   autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -97,11 +97,21 @@
 " }
 
 " UI {
-  if has('cmdline_info')
-    set ruler                   " show the ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
-    set showcmd                 " show partial commands in status line and                                " selected characters/lines in visual mode
-  endif
+  set tabpagemax=15
+  set background=dark
+
+  let g:solarized_termtrans=1
+  let g:solarized_contrast='high'
+  let g:solarized_visibility='high'
+  let g:solarized_termcolors=256
+
+  colorscheme solarized
+
+  "  if has('cmdline_info')
+  "  set ruler                   " show the ruler
+  "  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+  "  set showcmd                 " show partial commands in status line and                             " selected characters/lines in visual mode
+  "  endif
 
   if has('statusline')
     set laststatus=2
@@ -133,6 +143,12 @@
       set transparency=5        " Make the window slightly transparent
     endif
 
+"    if has("gui_gtk2")
+"      set guifont=Monaco\ 13,Consolas\ 13
+"    else
+"      set guifont=Monaco:h13,Consolas:h13
+"    endif
+    set guifont=Liberation\ Mono\ for\ Powerline\ 10
   endif
 " }
 
@@ -194,8 +210,8 @@
     \ 'mode': 'active',
     \ 'passive_filetypes': ['html','java'] }
 
-  let g:syntastic_python_checker = 'flake8'
-  let g:syntastic_python_checker_args = '--ignore="E401,E501"'
+  let g:syntastic_python_checkers = ['flake8']
+  let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
   let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
 " }
 
@@ -243,7 +259,7 @@
   let g:ackprg = 'ag --nogroup --nocolor --column'
 " }
 
-  " CSSColor {
+" CSSColor {
   let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }
 
@@ -254,8 +270,12 @@
 "}
 
 " Powerline {
-"   let g:Powerline_symbols = 'fancy'
-"   let g:Powerline_colorscheme = 'solarized256'
+"  let g:Powerline_symbols = 'fancy'
+"  let g:Powerline_colorscheme = 'solarized256'
+" }
+
+" Airline {
+  let g:airline_powerline_fonts = 1
 " }
 
 " EasyMotion {
@@ -268,6 +288,10 @@
 
 " UltiSnips {
   let g:UltiSnipsSnippetDirectories=["snippets"]
+" }
+
+" Dash {
+  nmap <silent> <leader>d <Plug>DashSearch
 " }
 
 " Autocmd {
@@ -301,62 +325,6 @@
     let @/=_s
     call cursor(l, c)
   endfunction
-
-  function! s:tagbar_integration()
-    " status line
-  endfunction
-
-  function! AirlineInit()
-"  set tabpagemax=15
-  set background=dark
-
-"  let g:solarized_termtrans=1
-"  let g:solarized_contrast='high'
-"  let g:solarized_visibility='high'
-"  let g:solarized_termcolors=256
-"  colorscheme murmur
-
-"   let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-    let g:airline_powerline_fonts=1
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
-    set guifont=
-"    let g:airline_left_sep = '▶'
-"    let g:airline_right_sep = '◀'
-"    let g:Powerline_theme="skwp"
-"    let g:Powerline_colorscheme="skwp"
-    let g:airline_symbols.linenr = '␤'
-"   set fillchars+=stl:\ ,stlnc:\
-"   let g:Powerline_mode_V="V·LINE"
-"   let g:Powerline_mode_cv="V·BLOCK"
-"   let g:Powerline_mode_S="S·LINE"
-"   let g:Powerline_mode_cs="S·BLOCK"
-
-    let g:airline_enable_branch = 1
-    let g:airline_enable_syntastic  = 1
-  "vim-powerline symbols
-    if has("win32")
-      let g:airline_left_sep  = '►'
-      let g:airline_left_alt_sep  = '»'
-      let g:airline_right_sep = '◄'
-      let g:airline_right_alt_sep = '«'
-      let g:airline_branch_prefix = '‡'
-    else
-      let g:airline_left_sep  = '▶'
-      let g:airline_left_alt_sep  = '»'
-      let g:airline_right_sep = '◀'
-      let g:airline_right_alt_sep = '«'
-      let g:airline_branch_prefix = '⎇'
-    endif
-
-    let g:airline_readonly_symbol   = '!'
-    let g:airline_linecolumn_prefix = 'l:c'
-    let g:airline#extensions#bufferline#enabled = 1
-
-  endfunction
-
-  autocmd VimEnter * call AirlineInit()
 
   function! InitializeDirectories()
     let parent = $HOME
