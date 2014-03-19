@@ -67,15 +67,16 @@ else
   # command line _eye candy_
   TTYTYPE="TERM"
   CRESET="${CLTYPE}[0m"    # Text Reset
-  TXTBLK="${CLTYPE}[0;30m" # Black - Regular
-  TXTRED="" # Red
-  TXTGRN="" # Green
-  TXTYLW="" # Yellow
-  TXTBLU="" # Blue
+
   TXTPUR="" # Purple
   TXTCYN="" # Cyan
   TXTWHT="" # White
 
+  TXTBLK="${CLTYPE}[0;30m" # Black - Regular
+  TXTRED="${CLTYPE}[0;31m" # Red
+  TXTGRN="${CLTYPE}[0;32m" # Green
+  TXTYLW="${CLTYPE}[0;33m" # Yellow
+  TXTBLU="${CLTYPE}[0;34m" # Blue
 fi
 
 cmdstyle () {
@@ -100,7 +101,8 @@ unset USERNAME
 # TODO: Detect interface dynamically
 IFACE=wlan0
 
-MYIP=`ping -c1 ${HOSTNAME} | awk '/icmp_/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+MYIP=`ping -n 1 -4 ${HOSTNAME} | awk '/from/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+# echo "Salida -> `ping -n 1 -4 ${HOSTNAME} | awk '/from/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`"
 
 if [ "$MYIP" = "127.0.0.1" ]
 then
