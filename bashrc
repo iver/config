@@ -10,6 +10,7 @@
 
 . ~/Config/dotfiles/git/git-completion.bash
 source ~/Config/dotfiles/git/git-prompt.sh
+. ~/Config/dotfiles/bash/go_path
 . ~/Config/dotfiles/bash/paths
 
 # Uncomment this line if you want to load ssh-id
