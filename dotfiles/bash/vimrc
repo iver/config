@@ -14,7 +14,9 @@
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
-  call neobundle#rc(expand('~/.vim/bundle/'))
+"  call neobundle#rc(expand('~/.vim/bundle/'))
+" Required:
+  call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Github Repos
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
@@ -26,7 +28,7 @@
   NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   NeoBundle 'bling/vim-airline'           " Status line, 100% vimscript; no python needed.
   NeoBundle 'Lokaltog/vim-easymotion'     " Vim motions on speed!
-  NeoBundle 'mattn/emmet-vim'	          " Plug-in which provides support for expanding abbreviations 
+  NeoBundle 'mattn/emmet-vim'	          " Plug-in which provides support for expanding abbreviations
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
   NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
@@ -43,8 +45,11 @@
   NeoBundle 'majutsushi/tagbar'           " Vim plugin that displays tags in a window, ordered by scope  http://majutsushi.github.com/tagbar/
   NeoBundle 'vim-scripts/dbext.vim'       " This plugin contains functions/mappings/commands to enable Vim to access several databases.
 
-"  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
-"  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
+" Requires vim version at least 7.3.584
+"  NeoBundle 'Valloric/YouCompleteMe'         " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
+
+  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
+  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
 
   " Javascript
   NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
@@ -73,12 +78,16 @@
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
 
+  call neobundle#end()
+
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
     echomsg 'Automatically install the following bundles: ' .
       \ string(neobundle#get_not_installed_bundle_names())
     execute ':NeoBundleInstall'
   endif
+
+  NeoBundleCheck
 " }
 
 " General {
@@ -148,6 +157,10 @@
   let g:solarized_termcolors=256
 
   colorscheme solarized
+
+  " Set mouse behavior
+  " set mouse=a
+  set ttymouse=xterm2
 
   "  if has('cmdline_info')
   "  set ruler                   " show the ruler
@@ -248,13 +261,13 @@
 " }
 
 " SyntaxCheckers {
-  let g:syntastic_mode_map = {
-    \ 'mode': 'active',
-    \ 'passive_filetypes': ['html','java'] }
+"  let g:syntastic_mode_map = {
+"    \ 'mode': 'active',
+"    \ 'passive_filetypes': ['html','java'] }
 
-  let g:syntastic_python_checkers = ['flake8']
-  let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
-  let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+"  let g:syntastic_python_checkers = ['flake8']
+"  let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
+"  let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
 " }
 
 " vimScript {
@@ -265,6 +278,7 @@
 
 " go {
   let Tlist_Ctags_Cmd= '/usr/local/bin/ctags'
+  set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
   source ~/.vim/conf/go.vim
   " General
 "  au FileType go setlocal noexpandtab
@@ -315,10 +329,11 @@
 " }
 
 " UltiSnips configuration {
-"  let g:UltiSnipsExpandTrigger="<tab>"
-"  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"  let g:UltiSnipsEditSplit="horizontal"
+  let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsEditSplit="horizontal"
 " }
 
 " neocomplcache {
@@ -385,10 +400,6 @@
   " Compatible with `solarized` colorscheme
   hi link EasyMotionTarget ErrorMsg
   hi link EasyMotionShade  Comment
-" }
-
-" UltiSnips {
-"  let g:UltiSnipsSnippetDirectories=["snippets"]
 " }
 
 " Dash {
