@@ -78,6 +78,13 @@
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
 
+  " Angular plugins
+  NeoBundle 'burnettk/vim-angular'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'othree/javascript-libraries-syntax.vim'
+  NeoBundle 'matthewsimo/angular-vim-snippets'
+  NeoBundle 'curist/vim-angular-template'
+
   call neobundle#end()
 
   " Auto-Installation

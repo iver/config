@@ -5,6 +5,10 @@ au FileType go setlocal sw=3
 let g:indent_guides_enable_on_vim_startup = 0
 " :IndentGuidesDisable
 
+" vim-go
+let g:go_snippet_engine = "ultisnips"
+let g:go_disable_autoinstall = 0
+
 func! GoFmtImap()
   let lines_before = line('$')
   let cur_pos = getpos('.')
@@ -116,3 +120,10 @@ endfunc
 
 nmap <C-g> :silent call FixWindows()<CR>
 au FileType godoc resize 10
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+" autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
