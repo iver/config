@@ -50,6 +50,7 @@
 
   NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
   NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
+  NeoBundle 'godlygeek/tabular'           " Vim script for text filtering and alignment used by plasticboy/vim-markdown '
 
   " Javascript
   NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
@@ -163,7 +164,8 @@
   let g:solarized_visibility='high'
   let g:solarized_termcolors=256
 
-  colorscheme solarized
+ "  colorscheme solarized
+   colorscheme tomorrow_night_bright
 
   " Set mouse behavior
   " set mouse=a
