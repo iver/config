@@ -13,12 +13,10 @@ if [ ! -d ${HOME}/.vim/conf ]; then
    mkdir -p ${HOME}/.vim/conf
 fi
 
-ln -s ${CURRENT}/go/go.vim ${HOME}/.vim/conf/go.vim;
-
-cp ${CURRENT}/vim/vimrc ~/.vim/vimrc.vim
+ln -s ${CURRENT}/vim/vimrc ~/.vim/vimrc.vim
 echo source ~/.vim/vimrc.vim > ~/.vimrc
+cp ${CURRENT}/vim/conf/go.vim ${HOME}/.vim/conf/go.vim;
 
-[ -f ~/.vimrc ] || ln -s ~/.vim/vimrc.vim ~/.vimrc
 [ -f ~/.gitconfig ] || ln -s ${CURRENT}/git/gitconfig ~/.gitconfig
 [ -f ~/.gitignore_global ] || ln -s ${CURRENT}/git/gitignore_global ~/.gitignore_global
 [ -f ~/.bash_profile ] || ln -s ${CURRENT}/bash_profile ~/.bash_profile
