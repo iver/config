@@ -44,7 +44,18 @@ localpaths () {
 
 }
 
+
+WORKSPACE=${HOME}/Workspace/;
+
+go_path() {
+  [ -d /usr/local/go ] && export GOROOT=/usr/local/go;
+  [ -d ${WORKSPACE}/go ] && export GOPATH=${WORKSPACE}/go;
+  [ -d ${GOPATH}/bin ] && export GOBIN=${GOPATH}/bin;
+  [ -d ${GOBIN} ] && PATH=${PATH}:${GOBIN};
+}
+
 # Cursor and profile
 localpaths
+go_path
 # java17
 
