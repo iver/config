@@ -10,6 +10,30 @@ There are a lot of dotfiles, a lot of castles, a little mess… Why don’t we c
 
 * You can keep public the dotfiles you would like to share with the community (vim) and private the ones you don’t want to (mutt).
 
+### INSTALL
+
+First at all, clone it!
+
+```
+git clone https://github.com/ivan-iver/config.git ~/Config
+```
+
+Then, you can run install script.
+
+```
+$> chmod +x install.sh
+$> ./install.sh
+```
+
+But if you prefer uninstall, then.
+
+```
+$> chmod +x uninstall.sh
+$> ./uninstall.sh
+```
+
+Your dot files configuration is ready. So ... enjoy it!
+
 
 ## Copyright and license
 
