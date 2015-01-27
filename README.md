@@ -15,5 +15,6 @@ There are a lot of dotfiles, a lot of castles, a little mess… Why don’t we c
 
 ***
 
-Copyright (c) 2014-2015 Iván Jaimes. See LICENSE for details.
+Copyright (c) 2014-2015 Iván Jaimes. See [LICENSE](LICENSE) for details.
+
 ---
