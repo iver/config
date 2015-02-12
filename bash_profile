@@ -10,7 +10,6 @@
 
 . ~/Config/git/git-completion.bash
 source ~/Config/git/git-prompt.sh
-. ~/Config/bash/go_path
 . ~/Config/bash/paths
 
 # Uncomment this line if you want to load ssh-id
