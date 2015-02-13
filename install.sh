@@ -5,7 +5,7 @@
 export CURRENT=${HOME}/Config
 
 if [ ! -d ~/.vim ]; then
-  git clone git@github.com:mockee/vitamine.git ~/.vim
+  git clone https://github.com/mockee/vitamine.git ~/.vim
   cd ~/.vim && git submodule init && git submodule update
 fi
 
@@ -22,3 +22,5 @@ cp ${CURRENT}/vim/conf/go.vim ${HOME}/.vim/conf/go.vim;
 [ -f ~/.bash_profile ] || ln -s ${CURRENT}/bash_profile ~/.bash_profile
 [ -f ~/.tmux.conf ] || ln -s ${CURRENT}/tmux.conf ~/.tmux.conf
 [ -f ~/.nanorc ] || ln -s ${CURRENT}/nanorc ~/.nanorc
+[ -f ~/.ssh/load_keys ] || touch ~/.ssh/load_keys
+
