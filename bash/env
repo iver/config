@@ -98,13 +98,13 @@ unset USERNAME
 # get IP Address
 
 # TODO: Detect interface dynamically
-IFACE=wlan0
+IFACE=eth1
 
 MYIP=`ping -c1 ${HOSTNAME} | awk '/icmp_/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
 
-if [ "$MYIP" = "127.0.0.1" ]
+REGEX="127.*.*.*"
+if [[ $MYIP =~ $REGEX ]]
 then
-#  MYIP=`ifconfig ${IFACE} | awk '/inet:/{print $2}' | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
    MYIP=`ifconfig ${IFACE}  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
 fi
 
