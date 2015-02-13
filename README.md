@@ -34,6 +34,18 @@ $> ./uninstall.sh
 
 Your dot files configuration is ready. So ... enjoy it!
 
+## Troubleshooting
+
+***
+
+#### Open GoLang files.
+
+Message: ``Exuberant ctags not found ``
+
+Fix:
+
+1  ``` apt-get install  ```
+2  ``` vim -c ':GoInstallBinaries ```
 
 ## Copyright and license
 
