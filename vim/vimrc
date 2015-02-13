@@ -4,13 +4,13 @@
 " }
 
 " Environment {
-  set nocompatible
   filetype on
   filetype off
 " }
 
 " NeoBundles {
   if has('vim_starting')
+    set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 

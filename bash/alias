@@ -1,9 +1,8 @@
 #!/bin/sh
 
 # common alias
-alias ls="ls -F"
-alias ll='ls -lhG --color'  # -l long listing, human readable, no group info
-#alias ll="ls -l"
+alias ls="ls -F --color"
+alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias la="ls -alh --color"
 alias lt="la -t"
 alias lr="lt -r"
