@@ -22,7 +22,7 @@ ln -s ${CURRENT}/vim/vimrc ~/.vim/vimrc.vim
 echo source ~/.vim/vimrc.vim > ~/.vimrc
 cp ${CURRENT}/vim/conf/go.vim ${HOME}/.vim/conf/go.vim;
 
-[ -f ~/.gitconfig ] || ln -s ${CURRENT}/git/gitconfig ~/.gitconfig
+[ -f ~/.gitconfig ] || ln -s ${CURRENT}/git/config ~/.gitconfig
 [ -f ~/.gitignore_global ] || ln -s ${CURRENT}/git/gitignore_global ~/.gitignore_global
 [ -f ~/.bash_profile ] || ln -s ${CURRENT}/bash_profile ~/.bash_profile
 [ -f ~/.tmux.conf ] || ln -s ${CURRENT}/tmux.conf ~/.tmux.conf
