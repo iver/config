@@ -105,7 +105,7 @@ MYIP=`ping -c1 ${HOSTNAME} | awk '/icmp_/{print $0}' | sed 's/^.*[^0-9]\([0-9]*\
 REGEX="127.*.*.*"
 if [[ $MYIP =~ $REGEX ]]
 then
-   MYIP=`ifconfig ${IFACE}  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
+   MYIP=`/sbin/ifconfig ${IFACE}  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
 fi
 
 # specific host enviroment
