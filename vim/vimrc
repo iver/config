@@ -4,19 +4,19 @@
 " }
 
 " Environment {
-  set nocompatible
   filetype on
   filetype off
 " }
 
 " NeoBundles {
   if has('vim_starting')
+    set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
-"  call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#rc(expand('~/.vim/bundle/'))
 " Required:
-  call neobundle#begin(expand('~/.vim/bundle/'))
+"  call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Github Repos
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
@@ -48,8 +48,8 @@
 " Requires vim version at least 7.3.584
 "  NeoBundle 'Valloric/YouCompleteMe'         " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 
-  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
-  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
+"  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
+"  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
 
   " Javascript
   NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
@@ -85,7 +85,7 @@
   NeoBundle 'matthewsimo/angular-vim-snippets'
   NeoBundle 'curist/vim-angular-template'
 
-  call neobundle#end()
+"  call neobundle#end()
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
@@ -94,7 +94,7 @@
     execute ':NeoBundleInstall'
   endif
 
-  NeoBundleCheck
+"  NeoBundleCheck
 " }
 
 " General {

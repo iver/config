@@ -13,7 +13,7 @@ source ~/Config/git/git-prompt.sh
 . ~/Config/bash/paths
 
 # Uncomment this line if you want to load ssh-id
-. ~/Config/bash/load_keys.sh
+# . ~/Config/bash/load_keys.sh
 
 # [ -z "$SP1" ] && return
 

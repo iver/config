@@ -6,11 +6,16 @@ export CURRENT=${HOME}/Config
 
 if [ ! -d ~/.vim ]; then
   git clone https://github.com/mockee/vitamine.git ~/.vim
-  cd ~/.vim && git submodule init && git submodule update
+  chmod +x ~/.vim/install.sh
+  source ~/.vim/install.sh
 fi
 
 if [ ! -d ${HOME}/.vim/conf ]; then
    mkdir -p ${HOME}/.vim/conf
+fi
+
+if [ -L ~/.vimrc ]; then
+   unlink ~/.vimrc
 fi
 
 ln -s ${CURRENT}/vim/vimrc ~/.vim/vimrc.vim
@@ -23,4 +28,10 @@ cp ${CURRENT}/vim/conf/go.vim ${HOME}/.vim/conf/go.vim;
 [ -f ~/.tmux.conf ] || ln -s ${CURRENT}/tmux.conf ~/.tmux.conf
 [ -f ~/.nanorc ] || ln -s ${CURRENT}/nanorc ~/.nanorc
 [ -f ~/.ssh/load_keys ] || touch ~/.ssh/load_keys
+if [ -d ~/.vim/bundle/vimproc ]; then
+   cd ~/.vim/bundle/vimproc && make
+fi
 
+if [ -d ~/.vim/bundle/neobundle.vim ]; then
+   cd ~/.vim/bundle/neobundle.vim && git pull
+fi
