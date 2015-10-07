@@ -44,8 +44,8 @@ Message: ``Exuberant ctags not found ``
 
 Fix:
 
-1  ``` apt-get install  ```
-2  ``` vim -c ':GoInstallBinaries ```
+1.  ``` apt-get install  ```
+2.  ``` vim -c ':GoInstallBinaries ```
 
 ## Copyright and license
 
