@@ -4,13 +4,13 @@
 " }
 
 " Environment {
+  set nocompatible
   filetype on
   filetype off
 " }
 
 " NeoBundles {
   if has('vim_starting')
-    set nocompatible
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
@@ -44,12 +44,15 @@
   NeoBundle 'Blackrush/vim-gocode'        " Bundle go code
   NeoBundle 'majutsushi/tagbar'           " Vim plugin that displays tags in a window, ordered by scope  http://majutsushi.github.com/tagbar/
   NeoBundle 'vim-scripts/dbext.vim'       " This plugin contains functions/mappings/commands to enable Vim to access several databases.
+  NeoBundle 'elixir-lang/vim-elixir'      " Elixir support for vim. This plugin also adds support for Elixir's templating language, EEx.
+  NeoBundle 'chase/vim-ansible-yaml'      " Ansible yml plugin
 
 " Requires vim version at least 7.3.584
 "  NeoBundle 'Valloric/YouCompleteMe'         " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 
 "  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
 "  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
+  NeoBundle 'godlygeek/tabular'           " Vim script for text filtering and alignment used by plasticboy/vim-markdown '
 
   " Javascript
   NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
@@ -163,8 +166,6 @@
   let g:solarized_visibility='high'
   let g:solarized_termcolors=256
 
-  colorscheme solarized
-
   " Set mouse behavior
   " set mouse=a
   set ttymouse=xterm2
@@ -196,6 +197,9 @@
   set foldenable                  " auto fold code
   set cursorline                  " highlight current line
   set anti                        " make text pretty
+
+"   colorscheme solarized
+   colorscheme tomorrow_night_bright
 " }
 
 " GUI Settings {
@@ -246,6 +250,7 @@
 
   " toggle between relative and absolute numbering
   nnoremap <F3> :NumbersToggle<CR>
+  nnoremap <F4> :NumbersOnOff<CR>
 " }
 
 " NerdTree {
@@ -336,11 +341,14 @@
 " }
 
 " UltiSnips configuration {
-  let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+  set runtimepath+=~/.vim/bundle/vim-snippets/snippets
+  let g:UltiSnipsUsePythonVersion = 2
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsJumpForwardTrigger="<c-b>"
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   let g:UltiSnipsEditSplit="horizontal"
+  let g:UltiSnipsSnippetsDir=expand('~/.vim/bundle/vim-snippets/snippets/')
+  let g:UltiSnipsSnippetDirectories=["UltiSnips","UltiSnip"]
 " }
 
 " neocomplcache {
@@ -475,3 +483,83 @@
   endfunction
   call InitializeDirectories()
 " }
+
+" COMMENTS SECTION
+"  ,# shell, perl, etc
+"  ,/ c++
+"  ,> email quote
+"  ," vim
+"  ,% latex, prolog
+"  ,! assembly/X-resources
+"  ,; scheme
+"  ,- sql, ada
+"  ,c clears any of the previous comments
+"
+" Here are the wrapping comments, each line wrapped individually:
+"
+"  ,* c
+"  ,( Standard ML
+"  ,< html
+"  ,d clears any of the wrapping comments
+
+" lhs comments
+map ,# :s/^/#/<CR> <Esc>:nohlsearch <CR>
+map ,/ :s/^/\/\//<CR> <Esc>:nohlsearch <CR>
+map ,> :s/^/> /<CR> <Esc>:nohlsearch<CR>
+map ," :s/^/\"/<CR> <Esc>:nohlsearch<CR>
+map ,% :s/^/%/<CR> <Esc>:nohlsearch<CR>
+map ,! :s/^/!/<CR> <Esc>:nohlsearch<CR>
+map ,; :s/^/;/<CR> <Esc>:nohlsearch<CR>
+map ,- :s/^/--/<CR> <Esc>:nohlsearch<CR>
+map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR> <Esc>:nohlsearch<CR>
+
+"map ,# :s/^/#/<CR>
+"map ,/ :s/^/\/\//<CR>
+"map ,> :s/^/> /<CR>
+"map ," :s/^/\"/<CR>
+"map ,% :s/^/%/<CR>
+"map ,! :s/^/!/<CR>
+"map ,; :s/^/;/<CR>
+"map ,- :s/^/--/<CR>
+"map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>
+
+" wrapping comments
+"map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR>
+"map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR>
+"map ,< :s/^\(.*\)$/<!-- \1 -->/<CR>
+"map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>
+
+map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
+map ,( :s/^\(.*\)$/\(\* \1 \*\)/<CR><Esc>:nohlsearch <CR>
+map ,< :s/^\(.*\)$/<!-- \1 -->/<CR> <Esc>:nohlsearch<CR>
+map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
+
+" Xml Prettyformat
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  "  delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
