@@ -91,6 +91,8 @@ export LANG="en_US.UTF-8"
 # history file
 export HISTSIZE=1500
 export HISTCONTROL=ignoredups
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabagacad
 # export MANPATH=$HOME/manuals:$MANPATH
 
 unset USERNAME

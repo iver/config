@@ -38,6 +38,7 @@ localpaths () {
   [ -d /usr/local/php5/bin ] && LPATH=/usr/local/php5/bin:${LPATH}
   [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
   [ -d /usr/local/Cellar/postgresql/9.3.3/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.3/bin:${LPATH}
+  [ -d /usr/local/sbin/ ] && LPATH=/usr/local/sbin:${LPATH}
 
   LPATH=.:${LPATH}
   PATH=${LPATH}
@@ -48,10 +49,15 @@ localpaths () {
 WORKSPACE=${HOME};
 
 go_path() {
-  [ -d /usr/local/go ] && export GOROOT=/usr/local/go;
+  echo "under go_path";
+  [[ -s "/usr/bin/go" ]] && export GOROOT=/usr/bin/go;
+  echo "root -> $GOROOT";
   [ -d ${WORKSPACE}/go ] && export GOPATH=${WORKSPACE}/go;
   [ -d /usr/local/go/bin ] && export GOBIN=/usr/local/go/bin;
   [ -d ${GOBIN} ] && PATH=${PATH}:${GOBIN};
+  echo "GORROT -> $GOROOT";
+  [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm";
+  echo "GORROT -> $GOROOT";
 }
 
 # Cursor and profile

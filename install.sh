@@ -33,5 +33,5 @@ if [ -d ~/.vim/bundle/vimproc ]; then
 fi
 
 if [ -d ~/.vim/bundle/neobundle.vim ]; then
-   cd ~/.vim/bundle/neobundle.vim && git pull
+   cd ~/.vim/bundle/neobundle.vim && git checkout master
 fi
