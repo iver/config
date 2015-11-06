@@ -14,6 +14,7 @@ alias t='tail -fn'
 alias h='history'
 alias cdw='cd /vagrant/'
 alias cdg='cd ~/go/'
+alias publish='python -m SimpleHTTPServer 5000'
 
 # alias mysql_stop='/usr/local/bin/mysqladmin -u root -p shutdown'
 # alias mysql_start='/usr/local/bin/mysqld_safe &'
