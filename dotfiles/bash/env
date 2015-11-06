@@ -93,6 +93,9 @@ export HISTSIZE=1500
 export HISTCONTROL=ignoredups
 # export MANPATH=$HOME/manuals:$MANPATH
 
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabagacad
+
 unset USERNAME
 
 # get IP Address

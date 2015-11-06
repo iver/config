@@ -21,6 +21,7 @@
 [core]
 	excludesfile = /Users/iver/.gitignore_global
 	quotepath = off
+	editor = vim
 [user]
 	name = Ivan Jaimes
 	email = ivan.jaimes@iver.mx

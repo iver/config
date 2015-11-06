@@ -38,6 +38,7 @@ localpaths () {
   [ -d /usr/local/php5/bin ] && LPATH=/usr/local/php5/bin:${LPATH}
   [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
   [ -d /usr/local/Cellar/postgresql/9.3.3/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.3/bin:${LPATH}
+  [ -d /usr/local/sbin/ ] && LPATH=/usr/local/sbin:${LPATH}
 
   LPATH=.:${LPATH}
   PATH=${LPATH}

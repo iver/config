@@ -17,6 +17,7 @@ alias h='history'
 alias cdw='cd ~/Workspace'
 alias mysql_stop='/usr/local/bin/mysqladmin -u root -p shutdown'
 alias mysql_start='/usr/local/bin/mysqld_safe &'
+alias publish='python -m SimpleHTTPServer 5000'
 
 alias pg-start='pg_ctl -D /usr/local/var/postgres/data -l /usr/local/var/postgres/log/server.log start'
 alias pg-stop='pg_ctl stop -m fast'
