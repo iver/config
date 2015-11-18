@@ -85,6 +85,16 @@
   NeoBundle 'matthewsimo/angular-vim-snippets'
   NeoBundle 'curist/vim-angular-template'
 
+" Install vimproc {
+  NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+" }
   call neobundle#end()
 
   " Auto-Installation
@@ -124,16 +134,6 @@
   let loaded_matchparen = 1 " this should fix issue with long lines
   " }
 
-" Install vimproc {
-  NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-" }
 
 " Formatting {
   set nowrap                      " wrap long lines
