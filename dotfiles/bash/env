@@ -117,3 +117,6 @@ fi
 # Cursor and profile
 cmdstyle
 
+export ATLAS_TOKEN="KKWeY05AYRnHng.atlasv1.EBXthoMy3apDrwwEdMP0xHtWWVRBmIqvtg2vTD5b67zkGrv3eVnkTPh5EX4oX1jzbwc"
+
+
