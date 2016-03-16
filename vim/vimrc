@@ -106,8 +106,20 @@
     execute ':NeoBundleInstall'
   endif
 
+  NeoBundleCheck
+
+" Install vimproc {
+  NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+" }
   call neobundle#end()
-"  NeoBundleCheck
+
 " }
 
 " General {
@@ -198,8 +210,8 @@
   set cursorline                  " highlight current line
   set anti                        " make text pretty
 
-"   colorscheme solarized
-   colorscheme tomorrow_night_bright
+   colorscheme solarized
+"   colorscheme tomorrow_night_bright
 " }
 
 " GUI Settings {

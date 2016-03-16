@@ -39,6 +39,7 @@ localpaths () {
   [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
   [ -d /usr/local/Cellar/postgresql/9.3.3/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.3/bin:${LPATH}
   [ -d /usr/local/sbin/ ] && LPATH=/usr/local/sbin:${LPATH}
+  [ -d /usr/local/go/bin/ ] && LPATH=/usr/local/go/bin:${LPATH}
 
   LPATH=.:${LPATH}
   PATH=${LPATH}
