@@ -14,9 +14,9 @@
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
-  call neobundle#rc(expand('~/.vim/bundle/'))
+"  call neobundle#rc(expand('~/.vim/bundle/'))
 " Required:
-"  call neobundle#begin(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Github Repos
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
@@ -88,7 +88,16 @@
   NeoBundle 'matthewsimo/angular-vim-snippets'
   NeoBundle 'curist/vim-angular-template'
 
-"  call neobundle#end()
+" Install vimproc {
+  NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+" }
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
@@ -97,6 +106,7 @@
     execute ':NeoBundleInstall'
   endif
 
+  call neobundle#end()
 "  NeoBundleCheck
 " }
 
@@ -127,16 +137,6 @@
   let loaded_matchparen = 1 " this should fix issue with long lines
   " }
 
-" Install vimproc {
-  NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-" }
 
 " Formatting {
   set nowrap                      " wrap long lines
