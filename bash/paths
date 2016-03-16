@@ -50,15 +50,11 @@ localpaths () {
 WORKSPACE=${HOME};
 
 go_path() {
-  echo "under go_path";
   [[ -s "/usr/bin/go" ]] && export GOROOT=/usr/bin/go;
-  echo "root -> $GOROOT";
   [ -d ${WORKSPACE}/go ] && export GOPATH=${WORKSPACE}/go;
   [ -d /usr/local/go/bin ] && export GOBIN=/usr/local/go/bin;
   [ -d ${GOBIN} ] && PATH=${PATH}:${GOBIN};
-  echo "GORROT -> $GOROOT";
   [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm";
-  echo "GORROT -> $GOROOT";
 }
 
 # Cursor and profile
