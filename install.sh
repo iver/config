@@ -5,7 +5,7 @@
 export CURRENT=${HOME}/Config
 
 if [ ! -d ~/.vim ]; then
-  git clone https://github.com/mockee/vitamine.git ~/.vim
+  git clone https://github.com/ivan-iver/vitamine.git ~/.vim
   chmod +x ~/.vim/install.sh
   source ~/.vim/install.sh
 fi
