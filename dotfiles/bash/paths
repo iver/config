@@ -29,6 +29,9 @@ localpaths () {
   [ -d /sbin ] && LPATH=/sbin:${LPATH}
   [ -d /bin ] && LPATH=/bin:${LPATH}
 
+  # google
+  [ -d /usr/local/google/gsutil ] && LPATH=/usr/local/google/gsutil:${LPATH}
+
   # locals
   [ -d /usr/local/bin ] && LPATH=/usr/local/bin:${LPATH}
   [ -d /opt/local/sbin ] && LPATH=/opt/local/sbin:${LPATH}
@@ -36,8 +39,10 @@ localpaths () {
   [ -d ${HOME}/apps ] && LPATH=${HOME}/apps:${LPATH}
   [ -d ${HOME}/bin ] && LPATH=${HOME}/bin:${LPATH}
 
-  # Add RVM to PATH for scripting
-  PATH=$PATH:$HOME/.rvm/bin
+  [ -d /usr/local/php5/bin ] && LPATH=/usr/local/php5/bin:${LPATH}
+  [ -d /usr/local/mysql/bin ] && LPATH=/usr/local/mysql/bin:${LPATH}
+  [ -d /usr/local/Cellar/postgresql/9.3.3/bin ] && LPATH=/usr/local/Cellar/postgresql/9.3.3/bin:${LPATH}
+  [ -d /usr/local/sbin/ ] && LPATH=/usr/local/sbin:${LPATH}
 
   LPATH=/opt/php53/bin:${LPATH}
   LPATH=.:${LPATH}
@@ -46,8 +51,5 @@ localpaths () {
 
 # Cursor and profile
 localpaths
-java17
+# java17
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
