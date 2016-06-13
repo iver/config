@@ -29,6 +29,9 @@ localpaths () {
   [ -d /sbin ] && LPATH=/sbin:${LPATH}
   [ -d /bin ] && LPATH=/bin:${LPATH}
 
+  # google
+  [ -d /usr/local/google/gsutil ] && LPATH=/usr/local/google/gsutil:${LPATH}
+
   # locals
   [ -d /usr/local/bin ] && LPATH=/usr/local/bin:${LPATH}
   [ -d /opt/local/sbin ] && LPATH=/opt/local/sbin:${LPATH}

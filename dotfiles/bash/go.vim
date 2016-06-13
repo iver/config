@@ -126,4 +126,4 @@ au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
-" autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
