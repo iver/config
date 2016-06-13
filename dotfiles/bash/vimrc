@@ -19,6 +19,7 @@
   call neobundle#begin(expand('~/.vim/bundle/'))
 
   " Github Repos
+  NeoBundle 'ekalinin/Dockerfile.vim'     " Docker syntax
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
   NeoBundle 'Shougo/neocomplcache'        " Ultimate auto-completion system
   NeoBundle 'scrooloose/syntastic'        " Syntax checking hacks
@@ -32,7 +33,7 @@
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'cakebaker/scss-syntax.vim'   " Vim syntax file for scss (Sassy CSS)
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
-  NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
+  NeoBundle 'ap/vim-css-color'       " Highlight colors in css files
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
@@ -52,8 +53,8 @@
 " Requires vim version at least 7.3.584
 "  NeoBundle 'Valloric/YouCompleteMe'         " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
 
-  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
-  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
+"  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
+"  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
   NeoBundle 'godlygeek/tabular'           " Vim script for text filtering and alignment used by plasticboy/vim-markdown '
 
   " Javascript
@@ -108,8 +109,9 @@
     execute ':NeoBundleInstall'
   endif
 
-  NeoBundleCheck
+"  NeoBundleCheck
 " }
+
 
   call neobundle#end()
 
@@ -201,8 +203,8 @@
   set cursorline                  " highlight current line
   set anti                        " make text pretty
 
-"   colorscheme solarized
-   colorscheme tomorrow_night_bright
+   colorscheme solarized
+"   colorscheme tomorrow_night_bright
 " }
 
 " GUI Settings {
