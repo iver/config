@@ -28,8 +28,8 @@ values."
            ruby-enable-ruby-on-rails-support t)
      (osx :variables
           osx-use-option-as-meta nil)
-     (perspectives :variables
-          perspective-enable-persp-projectile t)
+     ;; (perspectives :variables
+     ;;     perspective-enable-persp-projectile t)
      markdown
      html
      ;; org
