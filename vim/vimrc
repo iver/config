@@ -36,6 +36,7 @@
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
+  NeoBundle 'godlygeek/tabular'           " Vim script for text filtering and alignment used by plasticboy/vim-markdown '
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
   NeoBundle 'tpope/vim-surround'          " quoting/parenthesizing made simple
@@ -53,7 +54,6 @@
 
 "  NeoBundle 'SirVer/ultisnips'            " UltiSnips plugin
 "  NeoBundle 'honza/vim-snippets'          " Snippets for UltiSnips
-  NeoBundle 'godlygeek/tabular'           " Vim script for text filtering and alignment used by plasticboy/vim-markdown '
 
   " Javascript
   NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload':{'filetypes':['coffee']}}
